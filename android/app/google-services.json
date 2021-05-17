@@ -1,0 +1,40 @@
+{
+    "project_info": {
+      "project_number": "692790565628",
+      "firebase_url": "https://etherrider-96f03-default-rtdb.asia-southeast1.firebasedatabase.app",
+      "project_id": "etherrider-96f03",
+      "storage_bucket": "etherrider-96f03.appspot.com"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:692790565628:android:bea7f26cc281214dc39579",
+          "android_client_info": {
+            "package_name": "com.example.etherrider"
+          }
+        },
+        "oauth_client": [
+          {
+            "client_id": "692790565628-8fnp3h0554t2d3u1ull11u6d2ju98buo.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyAAqShyLxHDS-qVLdPEs_1iNbc3Yheptu8"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": [
+              {
+                "client_id": "692790565628-8fnp3h0554t2d3u1ull11u6d2ju98buo.apps.googleusercontent.com",
+                "client_type": 3
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }
