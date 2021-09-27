@@ -1,9 +1,18 @@
+import 'package:etherrider/DataHandler/AppData.dart';
+import 'package:etherrider/RegUI.dart';
+import 'package:etherrider/contract_linking.dart';
+import 'package:etherrider/screens/driverloginpage.dart';
+import 'package:etherrider/screens/driverregistrationpage.dart';
 import 'package:etherrider/screens/loginpage.dart';
 import 'package:etherrider/screens/registrationpage.dart';
-// import 'package:etherrider/screens/mainpage.dart';
+import 'package:etherrider/screens/mainpage.dart';
+import 'package:etherrider/screens/riderordriver.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,21 +34,38 @@ Future<void> main() async {
             databaseURL: 'https://etherrider-96f03-default-rtdb.asia-southeast1.firebasedatabase.app',
           ),
   );
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
+
+DatabaseReference usersRef = FirebaseDatabase.instance.reference().child("users");
+DatabaseReference driversRef = FirebaseDatabase.instance.reference().child("Drivers");
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'Brand-Regular',
-        primarySwatch: Colors.blue,
-        
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return ChangeNotifierProvider(
+      create: (context) => ContractLinking(),
+          child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: 'Brand-Regular',
+          primarySwatch: Colors.blue,
+          
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        initialRoute: RiderOrDriver.idScreen,
+        routes:{
+          RegistrationPage.idScreen: (context) => RegistrationPage(),
+          LoginPage.idScreen: (context) => LoginPage(),
+          MainPage.idScreen: (context) => MainPage(),
+          RiderOrDriver.idScreen: (context) => RiderOrDriver(),
+          DriverLoginPage.idScreen: (context) => DriverLoginPage(),
+          DriverRegistrationPage.idScreen: (context) => DriverRegistrationPage(),
+          //RegUI.idScreen: (context) => RegUI(),
+        }
       ),
-      home: RegistrationPage(),
     );
   }
 }

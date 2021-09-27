@@ -1,6 +1,7 @@
 import 'package:etherrider/Allwidgets/ProgressDialog.dart';
 import 'package:etherrider/brand_colors.dart';
 import 'package:etherrider/main.dart';
+import 'package:etherrider/screens/driverregistrationpage.dart';
 import 'package:etherrider/screens/mainpage.dart';
 import 'package:etherrider/screens/registrationpage.dart';
 import 'package:etherrider/screens/riderordriver.dart';
@@ -9,8 +10,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class LoginPage extends StatelessWidget {
-  static const String idScreen = "login";
+class DriverLoginPage extends StatelessWidget {
+  static const String idScreen = "driverlogin";
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
 
@@ -37,7 +38,7 @@ class LoginPage extends StatelessWidget {
                   height: 40,
                 ),
                 Text(
-                  'SignIn as a Rider',
+                  'SignIn as a Driver',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 25, fontFamily: 'Brand-Bold'),
                 ),
@@ -107,7 +108,7 @@ class LoginPage extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       Navigator.pushNamedAndRemoveUntil(
-                          context, RegistrationPage.idScreen, (route) => false);
+                          context, DriverRegistrationPage.idScreen, (route) => false);
                     },
                     child: Text(
                       'Don\'t have an account? SignUp Here',

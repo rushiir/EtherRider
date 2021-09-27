@@ -1,5 +1,6 @@
 import 'package:etherrider/Allwidgets/ProgressDialog.dart';
 import 'package:etherrider/main.dart';
+import 'package:etherrider/screens/driverloginpage.dart';
 import 'package:etherrider/screens/loginpage.dart';
 import 'package:etherrider/screens/mainpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:etherrider/brand_colors.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class RegistrationPage extends StatelessWidget {
+class DriverRegistrationPage extends StatelessWidget {
 
-  static const String idScreen = "register";
+  static const String idScreen = "driverregister";
 
   TextEditingController nameTextEditingController = TextEditingController();
   TextEditingController phoneTextEditingController = TextEditingController();
@@ -35,7 +36,7 @@ class RegistrationPage extends StatelessWidget {
                 ),
 
                 SizedBox(height:20,),
-                Text('Create a Riders Account',
+                Text('Create a Drivers Account',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 25, fontFamily: 'Brand-Bold'),
                 ),
@@ -154,10 +155,9 @@ class RegistrationPage extends StatelessWidget {
 
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(context, LoginPage.idScreen, (route) => false);
-                 
+                    Navigator.pushNamedAndRemoveUntil(context, DriverLoginPage.idScreen, (route) => false);
                   },
-                  child: Text('Already have a Riders account? LOGIN',)
+                  child: Text('Already have a Drivers account? LOGIN',)
                   ),
 
                        ],
@@ -197,10 +197,10 @@ class RegistrationPage extends StatelessWidget {
           "phone": phoneTextEditingController.text.trim()
         };
 
-        usersRef.child(firebaseUser.uid).set(userDataMap);
+        driversRef.child(firebaseUser.uid).set(userDataMap);
         displayToastMessage("Account Created", context);
 
-        Navigator.pushNamedAndRemoveUntil(context, MainPage.idScreen, (route) => false);
+        //Navigator.pushNamedAndRemoveUntil(context, MainPage.idScreen, (route) => false);
 
       }
       else
